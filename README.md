@@ -20,6 +20,11 @@ The "Redirect" and "RedirectMatch" names are based on the Apache2 [mod_alias Mod
 
 ### Data Source
 
+Two different ways to load the data files into Ansible:
+
+
+#### Local Copy
+
 Check out this repository and point your Playbook to the _redirect.txt_ and _redirectmatch.txt_ files.
 
 ```
@@ -28,6 +33,46 @@ Check out this repository and point your Playbook to the _redirect.txt_ and _red
     rickrolling_destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     rickrolling_redirect: "{{ lookup('file', '/path/to/ansible-rickrolling/redirect.txt').splitlines() }}"
     rickrolling_redirectmatch: "{{ lookup('file', '/path/to/ansible-rickrolling/redirectmatch.txt').splitlines() }}"
+
+
+- name: Install block list
+  template:
+    src: "/path/to/ansible-rickrolling/apache2.conf"
+    dest: "/etc/apache2/rickrolling.conf"
+    owner: www-data
+    group: www-data
+    mode: 0755
+  notify:
+    - restart apache2
+```
+
+
+#### Online Copy
+
+Use the [URI](https://docs.ansible.com/ansible/latest/modules/uri_module.html) module to download a copy of the files during deployment.
+
+Note: Your Ansible host must be able to reach GitHub during deployment.
+
+```
+- name: Fetch redirect.txt
+  uri:
+    url: https://raw.githubusercontent.com/andreasscherbaum/ansible-rickrolling/master/redirect.txt
+    return_content: yes
+  register: rickrolling_src_redirect
+
+
+- name: Fetch redirect.txt
+  uri:
+    url: https://raw.githubusercontent.com/andreasscherbaum/ansible-rickrolling/master/redirectmatch.txt
+    return_content: yes
+  register: rickrolling_src_redirectmatch
+
+
+- name: Import block lists and set config
+  set_fact:
+    rickrolling_destination: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    rickrolling_redirect: "{{ rickrolling_src_redirect.content.splitlines() }}"
+    rickrolling_redirectmatch: "{{ rickrolling_src_redirectmatch.content.splitlines() }}"
 
 
 - name: Install block list
