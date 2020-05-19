@@ -8,6 +8,9 @@ Rickrolling for 404 requests
 Every webserver log is spammed with [404 (Not Found)](https://en.wikipedia.org/wiki/HTTP_404) requests. The setup in this repository allows to redirect such requests to the famous [Rickrolling](https://en.wikipedia.org/wiki/Rickrolling) [Video](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
 
 
+Idea inspired by this [Tweet](https://twitter.com/LiamHammett/status/1260984553570570240).
+
+
 ## Ansible
 
 To ease configuration and deployment, Ansible is used and generates a configuration file. The input URLs (the 404) are listed in two files:
