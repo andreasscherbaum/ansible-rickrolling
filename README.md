@@ -37,6 +37,8 @@ Check out this repository and point your Playbook to the _redirect.txt_ and _red
     owner: www-data
     group: www-data
     mode: 0755
+  notify:
+    - restart apache2
 ```
 
 
