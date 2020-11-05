@@ -1,1 +1,5 @@
 ^/cgi-bin/mainfunction.cgi.*
+^/boaform/admin/formLogin.*
+^/dnscfg.cgi?dnsPrimary.*
+^/w00tw00t.at.blackhats.romanian.anti-sec.*
+^/SystemPage.aspx.*
