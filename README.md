@@ -21,6 +21,15 @@ To ease configuration and deployment, Ansible is used and generates a configurat
 The "Redirect" and "RedirectMatch" names are based on the Apache2 [mod_alias Module](https://httpd.apache.org/docs/current/mod/mod_alias.html). It is not necessary to enable the more complex _mod_rewrite_ module for simple redirects.
 
 
+## Apache2
+
+In your vhosts configuration, all you have to do is include the _rickrolling.conf_:
+
+```
+Include "/etc/apache2/rickrolling.conf"
+```
+
+
 ### Data Source
 
 Two different ways to load the data files into Ansible:

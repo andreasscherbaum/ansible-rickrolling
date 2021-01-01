@@ -33,7 +33,6 @@
 /1/wp-includes/wlwmanifest.xml
 /wp2/wp-includes/wlwmanifest.xml
 /blogs/wp-includes/wlwmanifest.xml
-/wp-login.php
 /manager/html
 /solr/admin/info/system?wt=json
 /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php>
@@ -52,7 +51,6 @@
 /manager/text/list
 /hudson
 /GponForm/diag_Form?images/
-/wordpress/wp-login.php
 /adv,/cgi-bin/weblogin.cgi
 /0bef
 /josso/%5C../invoker/EJBInvokerServlet/
@@ -85,3 +83,9 @@
 //cms/wp-includes/wlwmanifest.xml
 //sito/wp-includes/wlwmanifest.xml
 /xxxss
+/Autodiscover/Autodiscover.xml
+/api/jsonws/invoke
+/console/
+/GponForm/diag_Form?images/
+/boaform/admin/formLogin
+/administrator/
